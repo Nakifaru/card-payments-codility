@@ -8,9 +8,9 @@ def solution(A, D):
         acc_balance += transaction
 
         if transaction < 0:
-            #display date in YYYYMMDD
+            #display date in [YYYY,MM,DD]
             date = D[index].split('-')
-            #define a variable month which is a slice of the date
+            #define a variable month which is index 1 of the date
             month = date[1]
             #create a dictionary containing the frequency of each month's card payments
             if month in no_monthly_transactions:
@@ -22,8 +22,7 @@ def solution(A, D):
             if month in value_monthly_transactons:
                 value_monthly_transactons[month] += transaction
             else:
-                value_monthly_transactons[month] = transaction
-            
+                value_monthly_transactons[month] = transaction      
     #calculate no of months that will be excluded from fee
     excluded_months = 0
     #count a month as excluded if it has more than three payments with a total value less than -100, which basically is greater than 100 since payments are negative
@@ -43,6 +42,12 @@ def solution(A, D):
     print (final_balance)
     return final_balance
 
-# solution([100, 100, 100, -10], ["2020-01-01", "2020-12-22", "2020-12-03", "2020-12-29"])
+solution([100, 100, 100, -10], ["2020-01-01", "2020-12-22", "2020-12-03", "2020-12-29"])
 solution([180, -50, -25, -25], ["2020-01-01", "2020-01-01", "2020-01-01", "2020-01-31"])
+solution([100, 100, -10, -20,-30], ["2020-01-01", "2020-02-01", "2020-02-11", "2020-02-05", "2020-02-08"])
+solution([-60, 60, -40, -20], ["2020-10-01", "2020-02-02", "2020-10-10", "2020-10-30"])
+
+
+
     
+
